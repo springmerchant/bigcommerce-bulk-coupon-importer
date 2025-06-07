@@ -115,17 +115,15 @@ def read_coupon_codes(file_path: str, limit: int = 100) -> List[Dict[str, Any]]:
                     continue
                 
                 try:
-                    max_uses = None
-                    max_uses_per_customer = None
+                    max_uses = 0 # Default is 0 which means unlimited
+                    max_uses_per_customer = 0 # Default is 0 which means unlimited
                     
-                    # Parse MaxUses (can be empty/null for unlimited)
                     if row['MaxUses'].strip():
                         max_uses = int(row['MaxUses'].strip())
                         if max_uses < 0:
                             print(f"Warning: Invalid MaxUses value at row {row_number} (must be >= 0), skipping.")
                             continue
                     
-                    # Parse MaxUsesPerCustomer (can be empty/null for unlimited)
                     if row['MaxUsesPerCustomer'].strip():
                         max_uses_per_customer = int(row['MaxUsesPerCustomer'].strip())
                         if max_uses_per_customer < 0:
