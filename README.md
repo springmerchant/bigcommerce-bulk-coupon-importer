@@ -102,6 +102,18 @@ During an upload the CLI streams warnings to `stdout`; redirect output to captur
 
 ---
 
+## 🖥️ Prefer a GUI? Try CouponBrew
+
+If you’d rather manage coupons through a point‑and‑click interface—or need to import **hundreds of thousands** (even **millions**) of codes—check out our companion BigCommerce app [**CouponBrew**](https://www.bigcommerce.com/apps/couponbrew/).
+
+- Upload & generate massive coupon files.
+- Pprogress dashboards and detailed error reporting.
+- Bulk actions (delete), and works with both legacy and promotional coupon codes
+
+Install it from the BigCommerce App Marketplace and start pushing giant code lists in minutes.
+
+---
+
 ## 🤝 Contributing
 
 Pull requests welcome! Please format with `ruff` / `black` and add unit tests for new behaviour.
