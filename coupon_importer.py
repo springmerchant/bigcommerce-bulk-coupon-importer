@@ -12,6 +12,9 @@ from typing import List, Dict, Any
 import requests
 import csv
 
+RED   = "\033[31m"
+RESET = "\033[0m"
+
 
 class BigCommerceAPI:
     """BigCommerce API client for coupon operations."""
@@ -319,8 +322,11 @@ File format:
             print(f"{'Code':<32} {'Message':<128}")
             print("-" * 80)
             for error in errors[:5]:  # Show first 5 errors
-                print(f"{error.get('code'):<32} "
-                  f"{error.get('message')[:128]:<128} ")
+                print(RED
+                      + f"{error.get('code'):<32} "
+                      + f"{error.get('message')[:128]:<128}"
+                      + RESET
+                )
             if len(errors) > 5:
                 print(f"  ... and {len(errors) - 5} more errors")
     except Exception as e:
