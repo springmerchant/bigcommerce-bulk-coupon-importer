@@ -1,6 +1,6 @@
 # BigCommerce Coupon Code Uploader CLI
 
-Easily bulk‑upload coupon codes to **BigCommerce**. A *promotion* in BigCommerce is a marketing rule (e.g. “10 % off”) that can optionally be redeemed with unique coupon codes; this CLI automates pushing long lists of those codes straight to your store.
+Easily bulk‑upload coupon codes to a **BigCommerce** promotion. A *promotion* in BigCommerce is a marketing rule (e.g. “10 % off”) that can optionally be redeemed with unique coupon codes; this CLI automates pushing long lists of those codes straight to your store.
 
 ---
 
@@ -37,7 +37,7 @@ Clone the repo and make the script executable:
 ```bash
 git clone git@github.com:springmerchant/bigcommerce-bulk-coupon-importer.git
 cd bigcommerce-bulk-coupon-importer
-chmod +x bc_coupon_uploader.py
+chmod +x bc_coupon_importer.py
 ```
 
 Or install globally with [`pipx`](https://pipx.pypa.io/):
@@ -52,10 +52,10 @@ pipx install git+https://github.com/springmerchant/bigcommerce-bulk-coupon-impor
 
 ```bash
 # 1. List promotions to grab an ID
-./bc_coupon_uploader.py --store-hash ABC123 --token $BC_TOKEN --list-promotions
+./bc_coupon_importer.py --store-hash ABC123 --token $BC_TOKEN --list-promotions
 
 # 2. Upload codes from a CSV to promotion 42
-./bc_coupon_uploader.py --store-hash ABC123 --token $BC_TOKEN --promotion-id 42 --file sample_file.csv
+./bc_coupon_importer.py --store-hash ABC123 --token $BC_TOKEN --promotion-id 42 --file sample_file.csv
 ```
 
 ---
@@ -68,7 +68,7 @@ pipx install git+https://github.com/springmerchant/bigcommerce-bulk-coupon-impor
 Code,MaxUses,MaxUsesPerCustomer
 SAVE10,1,1
 WELCOME20,50,1
-FREESHIP,,
+FREESHIP,0,0
 ```
 
 - Use 0 for **MaxUses** or **MaxUsesPerCustomer** if you want unlimited uses.
@@ -97,7 +97,7 @@ FREESHIP,,
 During an upload the CLI streams warnings to `stdout`; redirect output to capture logs:
 
 ```bash
-./bc_coupon_uploader.py ... 2>&1 | tee upload.log
+./bc_coupon_importer.py ... 2>&1 | tee upload.log
 ```
 
 ---
